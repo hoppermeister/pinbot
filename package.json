@@ -1,0 +1,32 @@
+{
+  "name": "pinbot",
+  "version": "1.0.0",
+  "description": "Pinball Discord bot",
+  "main": "pinbot.js",
+  "dependencies": {
+    "@discordjs/builders": "^0.12.0",
+    "@discordjs/rest": "^0.3.0",
+    "axios": "^0.25.0",
+    "discord-api-types": "^0.26.1",
+    "discord.js": "^13.6.0",
+    "npm": "^8.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoppermeister/pinbot.git"
+  },
+  "keywords": [
+    "pinball",
+    "discord",
+    "chatbot"
+  ],
+  "author": "hopdog, boxyrain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoppermeister/pinbot/issues"
+  },
+  "homepage": "https://github.com/hoppermeister/pinbot#readme"
+}

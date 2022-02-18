@@ -1,0 +1,2 @@
+# pinbot
+Pinball Discord Chatbot
