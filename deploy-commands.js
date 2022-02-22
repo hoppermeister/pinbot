@@ -2,7 +2,7 @@ const fs = require('fs');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, token } = require('./config.json');
+const { clientId, guildId, pinballPeopleGuildId, token } = require('./config.json');
 
 const commands = [];
 
@@ -14,6 +14,17 @@ for (const file of commandFiles) {
 }
 const rest = new REST({ version: '9' }).setToken(token);
 
+// Only applies to guildId Discord server, but updates instantly. Global commands take 1hr+ to permiate
 rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
+	.then(() => console.log('Successfully registered application commands in LGN Discord.'))
+    .catch(console.error);
+
+// Only applies to guildId Discord server, but updates instantly. Global commands take 1hr+ to permiate
+rest.put(Routes.applicationGuildCommands(clientId, pinballPeopleGuildId), { body: commands })
+	.then(() => console.log('Successfully registered application commands at Pinball People.'))
+    .catch(console.error);
+
+// Global application command registration
+rest.put(Routes.applicationCommands(clientId), { body: commands })
 	.then(() => console.log('Successfully registered application commands.'))
 	.catch(console.error);
