@@ -2,7 +2,7 @@ const fs = require('fs');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
-const { clientId, guildId, pinballPeopleGuildId, token } = require('./config.json');
+const { clientId, guildId, pinballPeopleGuildId, discordToken } = require('./config.json');
 
 const commands = [];
 
@@ -12,7 +12,7 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     commands.push(command.data.toJSON());
 }
-const rest = new REST({ version: '9' }).setToken(token);
+const rest = new REST({ version: '9' }).setToken(discordToken);
 
 // Only applies to guildId Discord server, but updates instantly. Global commands take 1hr+ to permiate
 rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
