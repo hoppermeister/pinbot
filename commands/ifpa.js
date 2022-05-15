@@ -12,9 +12,6 @@ module.exports = {
         
         const inputStringRaw = interaction.options.getString('input');
         const ifpaRequestUrl = `https://api.ifpapinball.com/v1/player/search?api_key=${ifpaToken}&q=${inputStringRaw}`;
-        
-        let responseText = '';
-        
         const searchResponseEmbed = new MessageEmbed();
 
         axios.get(ifpaRequestUrl)
